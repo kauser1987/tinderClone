@@ -18,7 +18,7 @@ const io = new Server(server, {
 })
 app.use(
     cors({
-    origin:'*',
+    origin:process.env.FRONTEND_URL,
 
 }));
 
