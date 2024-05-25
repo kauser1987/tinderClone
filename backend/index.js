@@ -8,14 +8,14 @@ const server = http.createServer(app);
 const {Server} = require('socket.io')
 const userRouter = require('./routes/routes.js')
 
-const io = new Server(server, {
-    cors: {
-        origin:'*',
-    }
-})
 require('dotenv').config();
 app.use(express.json());
 connectDb();
+const io = new Server(server, {
+    cors: {
+        origin:process.env.FRONTEND_URL,
+    }
+})
 app.use(
     cors({
     origin:'*',
